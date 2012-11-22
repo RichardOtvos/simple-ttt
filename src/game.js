@@ -3,6 +3,7 @@ var TicTacToe = function(){
     //we have three states: START, PLAYING, END
     var gameState = "START";
 
+    //get the gameboard's in the DOM
     var $gameBoard = $('#board');
 
     //display start screen
@@ -23,6 +24,18 @@ var TicTacToe = function(){
                 updateDisplay();
             });
 
+    }
+
+    //display the play screen
+    function initPlayScreen(){
+        $gameBoard.empty();
+        $gameBoard.removeClass().addClass('playScreen');
+        $gameBoard.append($('<div class="playingfield"></div>)'));
+    }
+
+    //the gameloop
+    function gameLoop(){
+        console.log('gameloop');
 
     }
 
@@ -31,8 +44,12 @@ var TicTacToe = function(){
         if (gameState === "START"){
             initStartScreen();
         }
+
         else if (gameState === "PLAYING"){
-            console.log('playing');
+            if(! $gameBoard.hasClass('playScreen')){
+                initPlayScreen();
+            }
+            gameLoop();
         }
     }
 
@@ -42,8 +59,8 @@ var TicTacToe = function(){
     }
 
     return{
-        startGame: startGame
-    }
+        startGame: startGame    //starts the game
+    };
 }();
 
 TicTacToe.startGame();

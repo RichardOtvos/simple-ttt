@@ -1,11 +1,11 @@
 #board{
     min-width: 100%;
     min-height: 340px;
+    border: 2px solid #005580;
 }
 
 .startScreen{
     background: #08C;
-    border: 2px solid #005580;
 }
 
 .gameTitle{
@@ -24,4 +24,16 @@
      font-size: 3em;
      height: 80px;
      width: 200px;
+}
+
+.playScreen {
+    background: #08C;
+}
+
+.playingfield{
+    background: #EECB89;
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+    box-shadow: 3px 3px 6px #111;
 }
