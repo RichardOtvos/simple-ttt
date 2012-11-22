@@ -31,6 +31,12 @@ var TicTacToe = function(){
         $gameBoard.empty();
         $gameBoard.removeClass().addClass('playScreen');
         $gameBoard.append($('<div class="playingfield"></div>)'));
+
+        //we create the rectangles where you can put your mark
+        for(var i=0; i<9; i++){
+            $("<div class='play-rect empty'></div>").appendTo($('.playingfield'))
+                .attr('data-num', i);
+        }
     }
 
     //the gameloop
