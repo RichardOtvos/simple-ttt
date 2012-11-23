@@ -3,6 +3,12 @@ var TicTacToe = function(){
     //we have three states: START, PLAYING, END
     var gameState = "START";
 
+    //player1 - 1 | player2 - -1
+    var playerTurn = '1';
+
+    //the class to apply to the rects
+    var currentClass = 'player1';
+
     //get the gameboard's in the DOM
     var $gameBoard = $('#board');
 
@@ -32,6 +38,9 @@ var TicTacToe = function(){
         $gameBoard.removeClass().addClass('playScreen');
         $gameBoard.append($('<div class="playingfield"></div>)'));
 
+        //we create a rect that shows who's turn is it
+        $('<div id="turn-sign" class="player1"></div>').appendTo($gameBoard);
+
         //we create the rectangles where you can put your mark
         for(var i=0; i<9; i++){
             $("<div class='play-rect empty'></div>").appendTo($('.playingfield'))
@@ -41,8 +50,33 @@ var TicTacToe = function(){
 
     //the gameloop
     function gameLoop(){
-        console.log('gameloop');
 
+        $('.empty').click(function(){
+
+            if (playerTurn === 1){
+                currentClass = 'player1';
+            }else if (playerTurn === -1){
+                currentClass = 'player2';
+            }
+
+            updateTurnSign();
+            $(this).removeClass('empty').addClass(currentClass);
+
+            playerTurn *= -1;
+            
+        });
+
+    }
+
+    //updates the turn display
+    function updateTurnSign(){
+        var nextTurn = 'player2';
+        if (playerTurn === 1){
+                nextTurn = 'player2';
+        }else if (playerTurn === -1){
+                nextTurn = 'player1';
+        }
+        $('#turn-sign').removeClass().addClass(nextTurn);
     }
 
     //updates the game display
