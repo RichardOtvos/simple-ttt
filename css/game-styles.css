@@ -2,13 +2,14 @@
     min-width: 100%;
     min-height: 340px;
     border: 2px solid #005580;
+    position: relative;
 }
 
-.startScreen{
+.startScreen, .endScreen{
     background: #08C;
 }
 
-.gameTitle{
+.gameTitle, .endText{
     text-align: center;
     color: white;
     font-size: 4em;
@@ -38,8 +39,17 @@
     box-shadow: 3px 3px 6px #111;
 
     /*This causes the rects to collapse their borders */
-    line-height: 0px !important;
-    font-size: 0px !important;
+    line-height: 0;
+    font-size: 0;
+}
+
+#turn-sign{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+
+    width: 100px;
+    height: 100px;
 }
 
 .play-rect{
