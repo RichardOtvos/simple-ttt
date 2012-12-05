@@ -51,7 +51,7 @@ var TicTacToe = function(){
     //the gameloop
     function gameLoop(){
 
-        $('.empty').click(function(){
+        $('.empty').one('click', function(){
 
             if (playerTurn === 1){
                 currentClass = 'player1';
@@ -63,8 +63,15 @@ var TicTacToe = function(){
             $(this).removeClass('empty').addClass(currentClass);
 
             playerTurn *= -1;
+
+            checkWinningCondition();
             
         });
+
+    }
+
+    //checks who won
+    function checkWinningCondition(){
 
     }
 
