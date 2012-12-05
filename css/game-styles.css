@@ -5,11 +5,11 @@
     position: relative;
 }
 
-.startScreen{
+.startScreen, .endScreen{
     background: #08C;
 }
 
-.gameTitle{
+.gameTitle, .endText{
     text-align: center;
     color: white;
     font-size: 4em;
